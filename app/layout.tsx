@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +20,31 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            inter.className,
+            "relative bg-white dark:bg-neutral-900"
+          )}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            // forcedTheme="dark"
+            enableSystem
+            // disableTransitionOnChange
+            storageKey="discord-theme"
+          >
+            {children}
+          </ThemeProvider>
+
+          <Link
+            href="https://nadim.vercel.app"
+            className="bottom-0 right-0 text-teal-500"
+          >
+            &copy; Nadim Chowdhury
+          </Link>
+        </body>
       </html>
     </ClerkProvider>
   );
