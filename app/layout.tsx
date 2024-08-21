@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { ModalProvider } from "@/components/providers/modal-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,15 +36,16 @@ export default function RootLayout({
             // disableTransitionOnChange
             storageKey="discord-theme"
           >
+            {/* <ModalProvider /> */}
             {children}
           </ThemeProvider>
 
-          <Link
+          {/* <Link
             href="https://nadim.vercel.app"
             className="bottom-0 right-0 text-teal-500"
           >
             &copy; Nadim Chowdhury
-          </Link>
+          </Link> */}
         </body>
       </html>
     </ClerkProvider>

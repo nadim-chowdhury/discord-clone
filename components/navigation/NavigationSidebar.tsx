@@ -24,7 +24,7 @@ export default async function NavigationSidebar() {
   });
 
   return (
-    <div className="space-y-4 flex flex-col items-center h-full text-primary w-full dark:bg-neutral-950 py-3">
+    <div className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-neutral-100 dark:bg-neutral-950 py-3">
       <NavigationAction />
       <Separator className="h-[2px] bg-zinc-300 dark:bg-zinc-700 rounded-md w-10 mx-auto" />
 
