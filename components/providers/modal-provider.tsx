@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import CreateServerModal from "../modals/CreateServerModal";
 
-export const ModalProvider = () => {
-  const [isMounted, setisMounted] = useState(false);
+export default function ModalProvider() {
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setisMounted(true);
+    setIsMounted(true);
   }, []);
 
   if (!isMounted) return null;
@@ -17,4 +17,4 @@ export const ModalProvider = () => {
       <CreateServerModal />
     </>
   );
-};
+}
