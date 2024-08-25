@@ -24,9 +24,7 @@ export default function FileUpload({
         <Image
           fill
           src={value}
-          alt=""
-          //   height={80}
-          //   width={80}
+          alt="Uploaded file preview"
           className="rounded-full"
         />
 
@@ -45,10 +43,10 @@ export default function FileUpload({
     <UploadDropzone
       endpoint={endpoint}
       onClientUploadComplete={(res) => {
-        onChange(res?.[0]?.url);
+        onChange(res?.[0]?.url || "");
       }}
       onUploadError={(error: Error) => {
-        console.log(error);
+        console.error("Upload Error:", error);
       }}
     />
   );

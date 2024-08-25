@@ -17,7 +17,7 @@ export default async function NavigationSidebar() {
     where: {
       members: {
         some: {
-          profleId: profile.id,
+          profileId: profile.id,
         },
       },
     },

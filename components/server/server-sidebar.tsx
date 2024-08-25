@@ -47,11 +47,11 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
   );
 
   const members = server?.members?.filter(
-    (member) => member.profleId !== profile.id
+    (member) => member.profileId !== profile.id
   );
 
   const role = server.members.find(
-    (member) => member.profleId === profile.id
+    (member) => member.profileId === profile.id
   )?.role;
 
   return (

@@ -10,7 +10,7 @@ export default async function SetupPage() {
     where: {
       members: {
         some: {
-          profleId: profile.id,
+          profileId: profile.id,
         },
       },
     },

@@ -20,7 +20,7 @@ export default async function ServerIdLayout({
       id: params.serverId,
       members: {
         some: {
-          profleId: profile.id,
+          profileId: profile.id,
         },
       },
     },

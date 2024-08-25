@@ -21,27 +21,25 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import FileUpload from "@/components/FileUpload";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
+import FileUpload from "../FileUpload";
 
 const formSchema = z.object({
   name: z.string().min(1, {
     message: "Server name is required",
   }),
   imageUrl: z.string().min(1, {
-    message: "Server imageis required",
+    message: "Server image is required",
   }),
 });
 
 export default function CreateServerModal() {
   const { isOpen, onClose, type } = useModal();
-  console.log("isOpen:", isOpen);
   const router = useRouter();
 
   const isModalOpen = isOpen && type === "createServer";
-  console.log("isModalOpen:", isModalOpen);
 
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -54,15 +52,12 @@ export default function CreateServerModal() {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
-
     try {
       await axios.post("/api/servers", values);
 
       form.reset();
       router.refresh();
       onClose();
-      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -123,7 +118,6 @@ export default function CreateServerModal() {
                         {...field}
                       />
                     </FormControl>
-
                     <FormMessage />
                   </FormItem>
                 )}
@@ -131,7 +125,7 @@ export default function CreateServerModal() {
             </div>
 
             <DialogFooter className="bg-gray-100 px-6 py-4">
-              <Button disabled={isLoading} variant="primary">
+              <Button disabled={isLoading} variant="primary" type="submit">
                 Create
               </Button>
             </DialogFooter>

@@ -57,8 +57,8 @@ model Member {
   id   String     @id @default(uuid())
   role MemberRole @default(GUEST)
 
-  profleId String
-  profile  Profile @relation(fields: [profleId], references: [id], onDelete: Cascade)
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   serverId String
   server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
@@ -66,7 +66,7 @@ model Member {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@index([profleId])
+  @@index([profileId])
   @@index([serverId])
 }
 
@@ -81,8 +81,8 @@ model Channel {
   name String
   type ChannelType @default(TEXT)
 
-  profleId String
-  profile  Profile @relation(fields: [profleId], references: [id], onDelete: Cascade)
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   serverId String
   server   Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
@@ -90,6 +90,6 @@ model Channel {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@index([profleId])
+  @@index([profileId])
   @@index([serverId])
 }
