@@ -40,14 +40,16 @@ export default function FileUpload({
   }
 
   return (
-    <UploadDropzone
-      endpoint={endpoint}
-      onClientUploadComplete={(res) => {
-        onChange(res?.[0]?.url || "");
-      }}
-      onUploadError={(error: Error) => {
-        console.error("Upload Error:", error);
-      }}
-    />
+    <>
+      <UploadDropzone
+        endpoint={endpoint}
+        onClientUploadComplete={(res) => {
+          onChange(res?.[0]?.url || "");
+        }}
+        onUploadError={(error: Error) => {
+          console.error("Upload Error:", error);
+        }}
+      />
+    </>
   );
 }

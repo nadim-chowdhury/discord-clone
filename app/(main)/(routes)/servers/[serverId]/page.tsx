@@ -1,3 +1,3 @@
 export default function ServerIdPage() {
-  return <div></div>;
+  return <div>ServerIdPage</div>;
 }
